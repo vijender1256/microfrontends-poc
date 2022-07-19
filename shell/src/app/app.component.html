@@ -1,0 +1,16 @@
+<ul>
+  <li><a routerLink="/">Home</a></li>
+
+  <li><a routerLink="/item">Item</a></li>
+  <li><a routerLink="/itemAuth">Item Authorization</a></li>
+  <li><a routerLink="/tax/taxdashboard">Tax</a></li>
+  <li><a routerLink="/react">React</a></li>
+
+  <!-- Dynamically create menu items for all Micro Frontends -->
+  <!--<li *ngFor="let remote of remotes"><a [routerLink]="remote.routePath">{{remote.displayName}}</a></li>-->
+
+</ul>
+
+
+
+<router-outlet></router-outlet>

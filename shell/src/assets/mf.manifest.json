@@ -1,0 +1,16 @@
+{
+  "itemMfe": {
+    "remoteEntry": "http://localhost:4201/remoteEntry.js",
+    "exposedModule": "./ItemModule",
+    "displayName": "Item",
+    "routePath": "item",
+    "ngModuleName": "ItemModule"
+  },
+  "itemAuthMfe": {
+    "remoteEntry": "http://localhost:4202/remoteEntry.js",
+    "exposedModule": "./ItemAuthModule",
+    "displayName": "Item Authorization",
+    "routePath": "itemAuth",
+    "ngModuleName": "ItemAuthModule"
+  }
+}

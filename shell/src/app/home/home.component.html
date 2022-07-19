@@ -1,0 +1,25 @@
+<h1>Welcome!</h1>
+
+<input placeholder="User Name" [(ngModel)]="userName">
+<button class="btn btn-primary" (click)="login()" type="button">Login</button>
+<br/>
+<br />
+<br />
+<div>
+  <b>Shell Counter Value : </b> {{this.count$.getValue()}}
+</div>
+<br />
+<br />
+
+<mat-form-field>
+  <mat-select placeholder="Select Dashboard" (selectionChange)="onChangeDashboard($event.value)">
+    <mat-option *ngFor="let dashboard of dashboards" [value]="dashboard.value">
+      {{dashboard.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<ng-container *ngFor="let p of components; let last = last">
+  <plugin-proxy [options]="p"></plugin-proxy>
+  <i *ngIf="!last" class="arrow right" style=""></i>
+</ng-container>

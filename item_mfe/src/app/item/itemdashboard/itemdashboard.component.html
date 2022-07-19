@@ -1,0 +1,73 @@
+<div id="container">
+  <p>
+    Angular Version: {{ngVersion}}
+  </p>
+  <div>User: {{user}}</div>
+
+  <div>
+    MF Counter Value : {{internalCount}}
+    <button class="xyzbutton btn btn-primary" (click)="increment()" type="button">Increment</button>
+  </div>
+</div>
+<br />
+
+<section>
+  <div class="example-button-row">
+    <button mat-raised-button color="success" (click)="success()" type="button">Success</button>
+    <button mat-raised-button color="error" (click)="error()" type="button">Error</button>
+    <button mat-raised-button color="warn" (click)="warning()" type="button">Warn</button>
+  </div>
+</section>
+
+<h1>Dashboard Items</h1>
+
+
+
+<table mat-table [dataSource]="dataSourceItm" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+  <!-- Position Column -->
+  <ng-container matColumnDef="itemCode">
+    <th mat-header-cell *matHeaderCellDef> Item Code </th>
+    <td mat-cell *matCellDef="let element"> {{element.itemCode}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="buyerName">
+    <th mat-header-cell *matHeaderCellDef> Buyer Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.buyerName}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="itemSize">
+    <th mat-header-cell *matHeaderCellDef> Item Size </th>
+    <td mat-cell *matCellDef="let element"> {{element.itemSize}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actionsColumn">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element">
+
+      <button [matMenuTriggerFor]="allowedActions" mat-icon-button class="ml-xs" (click)="$event.stopPropagation();">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+
+      <mat-menu #allowedActions="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item *ngFor="let menu of element.actionItems" (click)="redirect(menu.routerLink,element.itemCode)">
+          {{ menu.displayName }}
+        </button>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
