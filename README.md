@@ -2,7 +2,7 @@
 
 This project demostrates the Micro Frontends architecture using Module Federation & Angular 14.
 
-# Steps to run the Project:
+# Steps to run the solution:
 
 1. Run **npm install** command in each Micro Frontend project.
 2. Run **ng serve** command in all Micro Frontends.
